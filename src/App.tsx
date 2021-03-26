@@ -1,9 +1,15 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import Header from './layout/Header'
+import Cakes from './components/Cakes'
+import Layout from './layout/Layout'
 
 const App: React.FC = () => {
-  return <div></div>
+  return (
+    <Layout>
+      <Header />
+      <Cakes />
+    </Layout>
+  )
 }
 
 export default App

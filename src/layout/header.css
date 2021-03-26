@@ -1,0 +1,13 @@
+.headerDiv {
+  padding-top: 2rem;
+  height: 8rem;
+  text-align: center;
+  background-color: rgb(214, 101, 101);
+}
+
+.headerText {
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  color: bisque;
+}
