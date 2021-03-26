@@ -79,8 +79,8 @@ const AddCake: React.FC = () => {
   const [formData, setFromValues] = useState<FormData>(new FormData())
   const [state, setValues] = useState<CakeValues>(initialState)
 
-  const [isValid, setInError] = useState<boolean>(false)
-  const [errMsg, setErrMsg] = useState<object>({})
+  const [errMsgObj, setErrMsgObj] = useState<object>({})
+  const [errMsg, setErrMsg] = useState<string>('')
   const init = () => {
     formData.set('yumFactor', state.yumFactor.toString())
   }
@@ -95,8 +95,12 @@ const AddCake: React.FC = () => {
     event.preventDefault()
 
     addCake(formData).then((data) => {
-      setValues(initialState)
-      console.log(data.error)
+      if (data.error) {
+        setErrMsgObj(data)
+        setErrMsg(data.error)
+      } else {
+        setValues(initialState)
+      }
     })
   }
 
@@ -106,8 +110,8 @@ const AddCake: React.FC = () => {
     const value = event.currentTarget.value
     let isError = validator(name, value)
     if (isError) {
-      setInError(true)
-      setErrMsg(isError as object)
+      setErrMsgObj(isError as object)
+      setErrMsg(isError[Object.keys(isError)[0]])
       console.log(
         'In Error:',
         isError,
@@ -115,7 +119,7 @@ const AddCake: React.FC = () => {
         isError[Object.keys(isError)[0]],
       )
     } else {
-      setInError(false)
+      setErrMsg('')
     }
     formData.set(name, value)
     setValues({ ...state, [name]: value })
@@ -190,8 +194,8 @@ const AddCake: React.FC = () => {
           </label>
         </div>
         {yumFactorInput()}
-        {isValid && (
-          <div style={{ fontSize: '1.4rem', color: '#6F0000' }}>{}</div>
+        {errMsg && (
+          <div style={{ fontSize: '1.4rem', color: '#6F0000' }}>{errMsg}</div>
         )}
         <button>Add cake</button>
       </form>
