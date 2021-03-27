@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef, Component } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 import StarRatingComponent from 'react-star-rating-component'
 import { validator } from '../validator'
 import { addCake } from '../APIs/cakeAPIs'
+import { useDispatch } from 'react-redux'
 import Layout from '../layout/Layout'
 
 interface CakeValues {
@@ -39,7 +41,7 @@ interface CakeValues {
     }
   }
 }
-const initialState = {
+const initialValues = {
   id: {
     value: 0,
     validation: {
@@ -76,15 +78,19 @@ const initialState = {
 }
 
 const AddCake: React.FC = () => {
-  const [formData, setFromValues] = useState<FormData>(new FormData())
-  const [state, setValues] = useState<CakeValues>(initialState)
-
-  const [errMsgObj, setErrMsgObj] = useState<object>({})
+  const [formData, _setFromValues] = useState<FormData>(new FormData())
+  const [state, setValues] = useState<CakeValues>(initialValues)
   const [errMsg, setErrMsg] = useState<string>('')
+  const [success, setSuccess] = useState<boolean>(false)
+  const [redirectId, setRedirectID] = useState('')
   const init = () => {
     formData.set('yumFactor', state.yumFactor.toString())
   }
-
+  const dispatch = useDispatch()
+  const changeUrl = (url: string) => {
+    dispatch({ type: 'CHANGE_URL', payload: url })
+  }
+  console.log(state.id.value)
   useEffect(() => {
     init()
   }, [])
@@ -96,10 +102,11 @@ const AddCake: React.FC = () => {
 
     addCake(formData).then((data) => {
       if (data.error) {
-        setErrMsgObj(data)
         setErrMsg(data.error)
       } else {
-        setValues(initialState)
+        console.log(state.id.value)
+        setSuccess(true)
+        setValues(initialValues)
       }
     })
   }
@@ -107,19 +114,16 @@ const AddCake: React.FC = () => {
   const handleChange = (name: string) => (
     event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const value = event.currentTarget.value
+    let value = event.currentTarget.value
     let isError = validator(name, value)
     if (isError) {
-      setErrMsgObj(isError as object)
       setErrMsg(isError[Object.keys(isError)[0]])
-      console.log(
-        'In Error:',
-        isError,
-        ' Error Message:',
-        isError[Object.keys(isError)[0]],
-      )
     } else {
       setErrMsg('')
+    }
+
+    if (name === 'id') {
+      changeUrl(value)
     }
     formData.set(name, value)
     setValues({ ...state, [name]: value })
@@ -202,7 +206,12 @@ const AddCake: React.FC = () => {
     )
   }
 
-  return <Layout>{cakeForm()}</Layout>
+  return (
+    <Layout>
+      {cakeForm()}
+      {success && <Redirect to={`/cake`} />}
+    </Layout>
+  )
 }
 
 export default AddCake
