@@ -5,7 +5,7 @@
   background-color: rgb(214, 101, 101);
 }
 
-@media (max-width: 428px) {
+@media (max-width: 790px) {
   .layout {
     margin: 0;
     margin-bottom: -2rem;

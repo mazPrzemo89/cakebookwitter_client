@@ -4,7 +4,6 @@
 
 .buttons {
   border-radius: 10px;
-
   font-family: 'Patrick Hand', cursive;
 }
 
@@ -26,42 +25,99 @@
   background-color: rgb(204, 65, 65);
 }
 
-@media (max-width: 475px) {
-  .new_cake_button {
-    margin-bottom: 1.2rem;
-  }
+.new_cake_button {
+  margin-bottom: 1.2rem;
+}
 
+.cakeDiv {
+  height: 25rem;
+  width: 80%;
+  margin: 0 10%;
+  margin-bottom: 2rem;
+  padding-top: 3rem;
+  background-color: bisque;
+  border-radius: 10px;
+}
+
+.cake_image {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.cake_title {
+  margin-top: 1.2rem;
+  color: rgb(204, 65, 65);
+  font-family: 'Patrick Hand';
+  font-size: 1.8rem;
+}
+
+.cake_image_div {
+  height: 17rem;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.cakesContent {
+  height: auto;
+  padding-bottom: 2rem;
+}
+
+.cake_display_comment {
+  width: 80%;
+  margin: 5% 10%;
+  padding: 10% 10%;
+  overflow-wrap: break-word;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Handlee', cursive;
+  font-size: 1.2rem;
+}
+
+.cake_display_comment_div {
+  height: auto;
+  line-height: 1.4;
+}
+.cake_comment_header {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: bisque;
+}
+
+.welcomeMessage {
+  width: 98%;
+  margin: 0;
+  padding: 5% 10%;
+  overflow-wrap: break-word;
+  border-radius: 5px;
+  font-family: 'Handlee', cursive;
+  font-size: 1.4rem;
+  color: rgb(248, 231, 210);
+}
+
+.welcomeMessageDiv {
+  height: auto;
+  line-height: 1.4;
+}
+
+@media (min-width: 1300px) {
   .cakeDiv {
-    height: 22rem;
-    width: 80%;
-    margin: 0 10%;
-    margin-bottom: 2rem;
-    padding-top: 3rem;
-    background-color: white;
-    border-radius: 10px;
-  }
-
-  .cake_image {
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
+    width: 50%;
+    margin: 0 25% 4rem 25%;
+    padding: 4%;
   }
 
   .cake_title {
-    margin-top: 1.2rem;
-    color: rgb(204, 65, 65);
-    font-family: 'Patrick Hand';
-    font-size: 1.6rem;
+    margin-top: 0.4rem;
   }
 
-  .cake_image_div {
-    height: 70%;
-    width: 80%;
-    margin: 0 10%;
+  .cake_display_comment {
+    width: 60%;
+    margin: 5% 20%;
   }
+}
 
-  .cakesContent {
-    height: auto;
-    padding-bottom: 2rem;
+@media (max-width: 375px) {
+  .cake_image {
+    height: 90%;
   }
 }

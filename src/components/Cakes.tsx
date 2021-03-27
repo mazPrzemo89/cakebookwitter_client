@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import Cookies from 'universal-cookie'
 import '../layout/sharedStyles.css'
 import './cakes.css'
 
@@ -10,12 +11,12 @@ interface CakesProps {
     name: string
     imageUrl: string
   }[]
-  onDeleteCake: (id: number) => void
 }
 
 const Cakes: React.FC<CakesProps> = (props) => {
   const dispatch = useDispatch()
-  const [cakeFromProps, setCakesFormProps] = useState([])
+  const cookies = new Cookies()
+
   const changeUrl = (url: string) => {
     dispatch({ type: 'CHANGE_URL', payload: url })
   }
@@ -30,15 +31,13 @@ const Cakes: React.FC<CakesProps> = (props) => {
                 className="cake_image"
                 onClick={() => {
                   changeUrl(cake.id.toString())
+                  cookies.set('url', cake.id.toString(), { maxAge: 300 })
                 }}
                 src={cake.imageUrl}
               />
             </div>
           </Link>
           <div className="cake_title">{cake.name}</div>
-          {/* <button onClick={() => props.onDeleteCake(cake.id)}>
-            delete cake
-          </button> */}
         </div>
       ))
     }

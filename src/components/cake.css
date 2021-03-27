@@ -1,0 +1,44 @@
+.cake_display {
+  height: 100%;
+}
+.cake_display_title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: bisque;
+}
+.cake_display_image_div {
+  padding: auto;
+  height: 21rem;
+  width: 80%;
+  margin: 10% 10%;
+  background-color: bisque;
+  border-radius: 5px;
+}
+
+.cake_display_image {
+  margin-top: 2rem;
+  height: 17rem;
+  border-radius: 5px;
+}
+
+.yum_factor_title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: bisque;
+  margin-bottom: 0.6rem;
+}
+
+.yum_factor_rating {
+  font-size: 2.6rem;
+}
+
+.yum_factor_bottom_block {
+  padding-bottom: 0rem;
+}
+
+@media (min-width: 1300px) {
+  .cake_display_image_div {
+    width: 50%;
+    margin: 1rem 25%;
+  }
+}

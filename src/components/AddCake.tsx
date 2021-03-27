@@ -5,6 +5,8 @@ import { validator } from '../validator'
 import { addCake } from '../APIs/cakeAPIs'
 import { useDispatch } from 'react-redux'
 import Layout from '../layout/Layout'
+import './cakeFormStyles.css'
+import '../layout/sharedStyles.css'
 
 interface CakeValues {
   id: {
@@ -82,7 +84,7 @@ const AddCake: React.FC = () => {
   const [state, setValues] = useState<CakeValues>(initialValues)
   const [errMsg, setErrMsg] = useState<string>('')
   const [success, setSuccess] = useState<boolean>(false)
-  const [redirectId, setRedirectID] = useState('')
+
   const init = () => {
     formData.set('yumFactor', state.yumFactor.toString())
   }
@@ -145,7 +147,12 @@ const AddCake: React.FC = () => {
   const yumFactorInput = () => {
     return (
       <div>
-        <h3>How yummy is your cake?</h3>
+        <p
+          className="cake_form_label"
+          style={{ fontSize: '2rem', marginBottom: '0.8rem' }}
+        >
+          How yummy is your cake?
+        </p>
         <div style={{ fontSize: '2.5rem' }}>
           <StarRatingComponent
             name="rate1"
@@ -160,34 +167,52 @@ const AddCake: React.FC = () => {
 
   const cakeForm = () => {
     return (
-      <form onSubmit={cakeSubmitHandler}>
-        <div>
-          <label htmlFor="cake-id">ID:</label>
-          <input
-            onChange={handleChange('id')}
-            type="number"
-            id="cake-id"
-            value={state.id.value === 0 ? '' : state.id.value}
-          />
-        </div>
-        <div>
-          <label htmlFor="cake-name">Name:</label>
-          <input
-            onChange={handleChange('name')}
-            type="text"
-            id="cake-name"
-            value={state.name.value}
-          />
-        </div>
-        <div>
-          <label htmlFor="cake-comment">Comment:</label>
-          <textarea
-            onChange={handleChange('comment')}
-            value={state.comment.value}
-          ></textarea>
-        </div>
-        <div>
-          <label className="btn btn-secondary">
+      <div className="cake_form">
+        <form onSubmit={cakeSubmitHandler}>
+          <div>
+            <div className="cake_form_label_div">
+              <label className="cake_form_label" htmlFor="cake-id">
+                ID:
+              </label>
+            </div>
+            <input
+              className="cake_form_text_input"
+              onChange={handleChange('id')}
+              type="number"
+              id="cake-id"
+              value={state.id.value === 0 ? '' : state.id.value}
+            />
+          </div>
+          <div>
+            <div className="cake_form_label_div">
+              <label className="cake_form_label" htmlFor="cake-name">
+                Name:
+              </label>
+            </div>
+            <input
+              className="cake_form_text_input"
+              onChange={handleChange('name')}
+              type="text"
+              id="cake-name"
+              value={state.name.value}
+            />
+          </div>
+          <div>
+            <div className="cake_form_label_div">
+              <label className="cake_form_label" htmlFor="cake-comment">
+                Comment:
+              </label>
+            </div>
+            <textarea
+              className="cake_form_comment"
+              onChange={handleChange('comment')}
+              value={state.comment.value}
+            ></textarea>
+          </div>
+          <div>
+            <div className="cake_form_label_div">
+              <label className="cake_form_label">Image</label>
+            </div>
             <input
               style={{ backgroundColor: 'white' }}
               onChange={handleFile}
@@ -195,19 +220,37 @@ const AddCake: React.FC = () => {
               name="photo"
               accept="image/*"
             />
-          </label>
+          </div>
+          {yumFactorInput()}
+
+          <button className="buttons new_cake_button">Add cake</button>
+        </form>
+      </div>
+    )
+  }
+
+  const addCakeTitle = () => {
+    return (
+      <div>
+        <h2 className="cake_form_title">Bake your cake!</h2>
+      </div>
+    )
+  }
+
+  const errorMessage = () => {
+    return (
+      <div className="err_msg_div">
+        <div className="err_msg_text_holder">
+          <p className="err_msg">{errMsg}</p>
         </div>
-        {yumFactorInput()}
-        {errMsg && (
-          <div style={{ fontSize: '1.4rem', color: '#6F0000' }}>{errMsg}</div>
-        )}
-        <button>Add cake</button>
-      </form>
+      </div>
     )
   }
 
   return (
     <Layout>
+      {addCakeTitle()}
+      {errMsg && errorMessage()}
       {cakeForm()}
       {success && <Redirect to={`/cake`} />}
     </Layout>

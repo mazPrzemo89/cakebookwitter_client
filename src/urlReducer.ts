@@ -1,4 +1,4 @@
-import { Action } from './actions'
+type Action = { type: 'CHANGE_URL'; payload: string }
 
 export interface UrlState {
   url: string
