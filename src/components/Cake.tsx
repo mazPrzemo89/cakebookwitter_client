@@ -45,7 +45,6 @@ const Cake: React.FC = () => {
   }
 
   const yumFactorComponent = (rating: number) => {
-    console.log(rating)
     return (
       <div className="yum_factor_div">
         <p className="yum_factor_title">Yum Factor:</p>
@@ -83,7 +82,6 @@ const Cake: React.FC = () => {
     )
   }
 
-  console.log(cakeData)
   return (
     <Layout>
       {cakeData && cake()}

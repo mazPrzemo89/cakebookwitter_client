@@ -43,6 +43,7 @@ interface CakeValues {
     }
   }
 }
+
 const initialValues = {
   id: {
     value: 0,
@@ -92,7 +93,7 @@ const AddCake: React.FC = () => {
   const changeUrl = (url: string) => {
     dispatch({ type: 'CHANGE_URL', payload: url })
   }
-  console.log(state.id.value)
+
   useEffect(() => {
     init()
   }, [])
@@ -103,10 +104,12 @@ const AddCake: React.FC = () => {
     event.preventDefault()
 
     addCake(formData).then((data) => {
+      console.log(data)
       if (data.error) {
         setErrMsg(data.error)
+        console.log('erro')
       } else {
-        console.log(state.id.value)
+        console.log('went to this block')
         setSuccess(true)
         setValues(initialValues)
       }
