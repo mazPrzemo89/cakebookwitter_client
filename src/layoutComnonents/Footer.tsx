@@ -13,6 +13,9 @@ const Footer: React.FC = () => {
         <img className="sm_icon" src={insta} />
         <img className="sm_icon" src={twitter} />
       </div>
+      <p style={{ fontSize: '0.8rem' }}>
+        © 2021 Cakebookwitter created by P.Mazur
+      </p>
     </div>
   )
 }
