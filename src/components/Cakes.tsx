@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import Cookies from 'universal-cookie'
-import '../layout/sharedStyles.css'
-import './cakes.css'
+import '../styles/sharedStyles.css'
+import '../styles/cakes.css'
 
 interface CakesProps {
   cakes: {
@@ -28,6 +28,7 @@ const Cakes: React.FC<CakesProps> = (props) => {
           <Link to={`/cake`}>
             <div className="cake_image_div">
               <img
+                alt={''}
                 className="cake_image"
                 onClick={() => {
                   changeUrl(cake.id.toString())

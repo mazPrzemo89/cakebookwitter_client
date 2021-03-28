@@ -4,14 +4,14 @@
 .cake_display_title {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  color: bisque;
+  color: brown;
 }
 .cake_display_image_div {
   padding: auto;
   height: 21rem;
   width: 80%;
   margin: 10% 10%;
-  background-color: bisque;
+  background-color: pink;
   border-radius: 5px;
 }
 
@@ -24,7 +24,7 @@
 .yum_factor_title {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  color: bisque;
+  color: brown;
   margin-bottom: 0.6rem;
 }
 
@@ -34,6 +34,12 @@
 
 .yum_factor_bottom_block {
   padding-bottom: 0rem;
+}
+
+.cake_buttons_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 1300px) {

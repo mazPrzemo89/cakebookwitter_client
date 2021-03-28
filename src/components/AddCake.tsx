@@ -4,9 +4,9 @@ import StarRatingComponent from 'react-star-rating-component'
 import { validator } from '../validator'
 import { addCake } from '../APIs/cakeAPIs'
 import { useDispatch } from 'react-redux'
-import Layout from '../layout/Layout'
-import './cakeFormStyles.css'
-import '../layout/sharedStyles.css'
+import Layout from '../layoutComnonents/Layout'
+import '../styles/cakeFormStyles.css'
+import '../styles/sharedStyles.css'
 
 interface CakeValues {
   id: {
@@ -99,10 +99,12 @@ const AddCake: React.FC = () => {
   }, [])
 
   // handlers
-
+  let id
   const cakeSubmitHandler = (event: React.FormEvent) => {
+    id = Math.floor(Date.now() * (Math.random() * Math.random())).toString()
     event.preventDefault()
-
+    formData.set('id', id)
+    changeUrl(id)
     addCake(formData).then((data) => {
       console.log(data)
       if (data.error) {
@@ -172,7 +174,7 @@ const AddCake: React.FC = () => {
     return (
       <div className="cake_form">
         <form onSubmit={cakeSubmitHandler}>
-          <div>
+          {/* <div>
             <div className="cake_form_label_div">
               <label className="cake_form_label" htmlFor="cake-id">
                 ID:
@@ -185,7 +187,7 @@ const AddCake: React.FC = () => {
               id="cake-id"
               value={state.id.value === 0 ? '' : state.id.value}
             />
-          </div>
+          </div> */}
           <div>
             <div className="cake_form_label_div">
               <label className="cake_form_label" htmlFor="cake-name">

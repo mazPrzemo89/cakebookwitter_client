@@ -4,13 +4,14 @@
   min-height: 19rem;
   margin-left: 15%;
   margin-top: 2rem;
-  border-radius: 2px;
-  padding-top: 1px;
+  border-radius: 5px;
+  padding: 1rem;
+  border: 2px brown solid;
 }
 
 .cake_form_label {
   font-size: 1.4rem;
-  color: white;
+  color: brown;
   font-family: 'Patrick Hand', cursive;
 }
 
@@ -31,7 +32,7 @@
 .cake_form_title {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  color: bisque;
+  color: brown;
   margin-top: 1rem;
 }
 
@@ -59,6 +60,16 @@
   }
 
   .err_msg_div {
-    width: 50%;margin: 0 25%;
+    width: 50%;
+    margin: 0 25%;
+  }
+}
+@media (max-width: 475px) {
+  .cake_form {
+    width: 90%;
+    margin: 0 5% 1rem 5%;
+  }
+  .cake_form_label_div {
+    margin-bottom: 0.6rem;
   }
 }

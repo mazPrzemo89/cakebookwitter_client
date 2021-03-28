@@ -15,7 +15,7 @@
 .new_cake_button {
   color: white;
   font-size: 1.3rem;
-  background-color: rgb(214, 101, 101);
+  background-color: brown;
   height: 2.5rem;
   width: 50%;
   border: 2px solid white;
@@ -35,7 +35,8 @@
   margin: 0 10%;
   margin-bottom: 2rem;
   padding-top: 3rem;
-  background-color: bisque;
+  background-color: pink;
+  /* background-color: bisque; */
   border-radius: 10px;
 }
 
@@ -46,8 +47,8 @@
 
 .cake_title {
   margin-top: 1.2rem;
-  color: rgb(204, 65, 65);
-  font-family: 'Patrick Hand';
+  color: brown;
+  font-family: 'Dancing Script', cursive;
   font-size: 1.8rem;
 }
 
@@ -71,6 +72,8 @@
   border-radius: 5px;
   font-family: 'Handlee', cursive;
   font-size: 1.2rem;
+  border: 2px solid brown;
+  color: rgb(165, 38, 38);
 }
 
 .cake_display_comment_div {
@@ -80,7 +83,7 @@
 .cake_comment_header {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  color: bisque;
+  color: brown;
 }
 
 .welcomeMessage {
@@ -91,7 +94,7 @@
   border-radius: 5px;
   font-family: 'Handlee', cursive;
   font-size: 1.4rem;
-  color: rgb(248, 231, 210);
+  color: brown;
 }
 
 .welcomeMessageDiv {
@@ -113,6 +116,12 @@
   .cake_display_comment {
     width: 60%;
     margin: 5% 20%;
+  }
+}
+
+@media (max-width: 475px) {
+  .new_cake_button {
+    width: 75%;
   }
 }
 
