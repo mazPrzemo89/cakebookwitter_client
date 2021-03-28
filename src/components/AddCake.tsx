@@ -9,14 +9,6 @@ import '../styles/cakeFormStyles.css'
 import '../styles/sharedStyles.css'
 
 interface CakeValues {
-  id: {
-    value: number
-    validation: {
-      required: boolean
-      valid: boolean
-      touched: boolean
-    }
-  }
   name: {
     value: string
     validation: {
@@ -45,14 +37,6 @@ interface CakeValues {
 }
 
 const initialValues = {
-  id: {
-    value: 0,
-    validation: {
-      required: true,
-      valid: false,
-      touched: false,
-    },
-  },
   name: {
     value: '',
     validation: {
@@ -175,20 +159,6 @@ const AddCake: React.FC = () => {
     return (
       <div className="cake_form">
         <form onSubmit={cakeSubmitHandler}>
-          {/* <div>
-            <div className="cake_form_label_div">
-              <label className="cake_form_label" htmlFor="cake-id">
-                ID:
-              </label>
-            </div>
-            <input
-              className="cake_form_text_input"
-              onChange={handleChange('id')}
-              type="number"
-              id="cake-id"
-              value={state.id.value === 0 ? '' : state.id.value}
-            />
-          </div> */}
           <div>
             <div className="cake_form_label_div">
               <label className="cake_form_label" htmlFor="cake-name">
