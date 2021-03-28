@@ -23,9 +23,18 @@
   justify-content: space-between;
 }
 
+.footer_div {
+  padding-bottom: 1rem;
+}
+
 @media (max-width: 790px) {
   .layout {
     margin: 0;
     margin-bottom: -2rem;
+  }
+
+  .border {
+    width: 86%;
+    margin-left: 7%;
   }
 }

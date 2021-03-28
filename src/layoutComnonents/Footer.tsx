@@ -6,7 +6,7 @@ import '../styles/layout.css'
 
 const Footer: React.FC = () => {
   return (
-    <div>
+    <div className="footer_div">
       <div className="border"></div>
       <div className="footer">
         <img className="sm_icon" src={facebook} />
