@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import '../styles/header.css'
 
 const Header: React.FC = () => {
-  let location = useLocation()
   return (
     <div className="headerDiv">
       <Link to="/" className="headerLink">
