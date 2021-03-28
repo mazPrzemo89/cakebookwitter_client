@@ -31,9 +31,10 @@ const FrontPage: React.FC = () => {
     return (
       <div className="welcomeMessageDiv">
         <p className="welcomeMessage">
-          Welcome to Cakebookwitter! We've got a collection of delicious cakes,
-          click on one of them to find out more about it. Feel free to add new
-          cakes and remove the old ones if you know any tastier ones.
+          Welcome to Cakebookwitter! We've got a collection of delicious cakes
+          for you to browse, add and remove existing cake from the list. Which
+          is the most delicious? Thats for you to decide! click on a cake to
+          find out more.
         </p>
       </div>
     )

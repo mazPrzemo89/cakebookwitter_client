@@ -6,12 +6,12 @@
   margin-top: 2rem;
   border-radius: 5px;
   padding: 1rem;
-  border: 2px brown solid;
+  border: 2px #a23b72 solid;
 }
 
 .cake_form_label {
   font-size: 1.4rem;
-  color: brown;
+  color: #a23b72;
   font-family: 'Patrick Hand', cursive;
 }
 
@@ -32,8 +32,8 @@
 .cake_form_title {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  color: brown;
-  margin-top: 1rem;
+  color: #a23b72;
+  margin-top: 5rem;
 }
 
 .err_msg_div {

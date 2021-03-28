@@ -10,10 +10,23 @@
   margin: 0;
   font-family: 'Dancing Script', cursive;
   font-size: 4rem;
-  color:brown
+  color: #a23b72;
   /* color: rgb(214, 101, 101); */
 }
 
 .headerLink {
   text-decoration: none;
+}
+
+.cake_icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+@media (max-width: 475px) {
+  .cake_icon {
+    top: 8rem;
+    right: 9.5rem;
+  }
 }

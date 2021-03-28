@@ -32,7 +32,7 @@ const Cakes: React.FC<CakesProps> = (props) => {
                 className="cake_image"
                 onClick={() => {
                   changeUrl(cake.id.toString())
-                  cookies.set('url', cake.id.toString(), { maxAge: 300 })
+                  cookies.set('url', cake.id.toString(), { maxAge: 60 * 60 })
                 }}
                 src={cake.imageUrl}
               />

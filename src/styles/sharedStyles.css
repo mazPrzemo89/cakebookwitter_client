@@ -15,18 +15,19 @@
 .new_cake_button {
   color: white;
   font-size: 1.3rem;
-  background-color: brown;
+  background-color: #a23b72;
   height: 2.5rem;
   width: 50%;
   border: 2px solid white;
   margin-top: 15px;
 }
 .new_cake_button:hover {
-  background-color: rgb(204, 65, 65);
+  background-color: #a23b72;
 }
 
 .new_cake_button {
   margin-bottom: 1.2rem;
+  outline: none;
 }
 
 .cakeDiv {
@@ -46,8 +47,8 @@
 }
 
 .cake_title {
-  margin-top: 1.2rem;
-  color: brown;
+  margin-top: 1.9rem;
+  color: #a23b72;
   font-family: 'Dancing Script', cursive;
   font-size: 1.8rem;
 }
@@ -72,8 +73,8 @@
   border-radius: 5px;
   font-family: 'Handlee', cursive;
   font-size: 1.2rem;
-  border: 2px solid brown;
-  color: rgb(165, 38, 38);
+  border: 2px solid #a23b72;
+  color: #a23b72;
 }
 
 .cake_display_comment_div {
@@ -83,7 +84,7 @@
 .cake_comment_header {
   font-family: 'Dancing Script', cursive;
   font-size: 3rem;
-  color: brown;
+  color: #a23b72;
 }
 
 .welcomeMessage {
@@ -94,11 +95,12 @@
   border-radius: 5px;
   font-family: 'Handlee', cursive;
   font-size: 1.4rem;
-  color: brown;
+  color: #a23b72;
 }
 
 .welcomeMessageDiv {
   height: auto;
+  font-family: 'Oswald', sans-serif;
   line-height: 1.4;
 }
 
@@ -107,10 +109,6 @@
     width: 50%;
     margin: 0 25% 4rem 25%;
     padding: 4%;
-  }
-
-  .cake_title {
-    margin-top: 0.4rem;
   }
 
   .cake_display_comment {

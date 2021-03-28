@@ -21,11 +21,11 @@ const errMsgs: errorMsgsObj = {
   },
   nameError: {
     noName: 'Please provide a name for your cake.',
-    maxSize: 'Name cannot be longer than 20 characters.',
+    maxSize: '',
   },
   commentError: {
     noComment: 'Please write a comment.',
-    maxSize: 'Comment cannot be longer than 200 characters.',
+    maxSize: '',
   },
   photoError: 'Please choode an image file.',
 }
@@ -45,14 +45,16 @@ export const validator = (
     if (value === '') {
       return { nameErr: errMsgs.nameError.noName }
     } else if ((value as string).length > 20) {
-      return { nameErr: errMsgs.nameError.maxSize }
+      return { nameErr: `The name too long: ${(value as string).length}/20` }
     } else return false
   }
   if (name === 'comment') {
     if (value === '') {
       return { commentErr: errMsgs.commentError.noComment }
     } else if ((value as string).length > 200) {
-      return { comentErr: errMsgs.commentError.maxSize }
+      return {
+        comentErr: `Your comment is too long: ${(value as string).length}/200`,
+      }
     } else return false
   }
   if (name === 'photo') {

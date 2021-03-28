@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useLocation } from 'react-router-dom'
 import Layout from '../layoutComnonents/Layout'
 import { useSelector } from 'react-redux'
 import { UrlState } from '../urlReducer'
@@ -18,10 +18,16 @@ interface Cake {
 }
 
 const Cake: React.FC = () => {
+  const location = useLocation()
+  if (location.pathname !== '/cake') {
+    window.scroll(0, 0)
+  }
+
   const url = useSelector<UrlState, UrlState['url']>((state) => state.url)
   const [cakeData, setCakeData] = useState<Cake>()
   const [deleted, setDeleted] = useState<boolean>(false)
-  const [toggle, setToggle] = useState<boolean>(false)
+  const [toggleId, setToggleId] = useState<boolean>(false)
+  const [toggleDelete, setToggleDelete] = useState<boolean>(false)
   const cookies = new Cookies()
   const init = () => {
     if (url !== '') {
@@ -45,8 +51,47 @@ const Cake: React.FC = () => {
     })
   }
 
-  const toggleId = () => {
-    setToggle(!toggle)
+  const showId = () => {
+    if (toggleDelete === true) {
+      setToggleDelete(!toggleDelete)
+    }
+    setToggleId(!toggleId)
+  }
+
+  const cakeId = () => {
+    return <h2 style={{ marginBottom: '32px' }}>{cookies.get('url')}</h2>
+  }
+
+  const showDelete = () => {
+    window.scroll(0, 2000)
+    if (toggleId === true) {
+      setToggleId(!toggleId)
+    }
+    setToggleDelete(!toggleDelete)
+  }
+
+  const deleteButtons = (id: number) => {
+    return (
+      <div>
+        <h2 className="delete_prompt">Are you sure?</h2>
+        <div className="delete_buttons_div">
+          <button
+            style={{ backgroundColor: 'green' }}
+            className="delete_buttons"
+            onClick={() => deleteCakeHandler(id)}
+          >
+            Yes
+          </button>
+          <button
+            style={{ backgroundColor: 'red' }}
+            className="delete_buttons"
+            onClick={showDelete}
+          >
+            No
+          </button>
+        </div>
+      </div>
+    )
   }
 
   const yumFactorComponent = (rating: number) => {
@@ -82,27 +127,21 @@ const Cake: React.FC = () => {
         {yumFactorComponent(cakeData?.yumFactor as number)}
         <div className="yum_factor_bottom_block"></div>
         <div className="cake_buttons_div">
-          <button
-            className="buttons new_cake_button"
-            onClick={() => deleteCakeHandler(cakeData?.id as number)}
-          >
-            delete cake
+          <button className="buttons new_cake_button" onClick={showDelete}>
+            Delete cake
           </button>
-          {toggle && cakeId()}
+          {toggleDelete && deleteButtons(cakeData?.id as number)}
+          {toggleId && cakeId()}
           <button
             style={{ marginTop: '0' }}
             className="buttons new_cake_button"
-            onClick={() => toggleId()}
+            onClick={() => showId()}
           >
-            retrieve cake id
+            Retrieve cake id
           </button>
         </div>
       </div>
     )
-  }
-
-  const cakeId = () => {
-    return <h2>{cookies.get('url')}</h2>
   }
 
   return (

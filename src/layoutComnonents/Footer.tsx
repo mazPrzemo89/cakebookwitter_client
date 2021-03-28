@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
     <div>
       <div className="border"></div>
       <div className="footer">
-        <img src={facebook} />
-        <img src={insta} />
-        <img src={twitter} />
+        <img className="sm_icon" src={facebook} />
+        <img className="sm_icon" src={insta} />
+        <img className="sm_icon" src={twitter} />
       </div>
     </div>
   )
