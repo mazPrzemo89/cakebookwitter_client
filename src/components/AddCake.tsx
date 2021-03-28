@@ -81,6 +81,7 @@ const initialValues = {
 }
 
 const AddCake: React.FC = () => {
+  window.scroll(0, 0)
   const [formData, _setFromValues] = useState<FormData>(new FormData())
   const [state, setValues] = useState<CakeValues>(initialValues)
   const [errMsg, setErrMsg] = useState<string>('')
